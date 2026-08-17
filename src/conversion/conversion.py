@@ -15,7 +15,9 @@ class Conversion:
             celsius_a_fahrenheit(0) -> 32.0
             celsius_a_fahrenheit(100) -> 212.0
         """
-        pass
+        resultado = (celsius * 9 / 5) + 32
+
+        return resultado
     
     def fahrenheit_a_celsius(self, fahrenheit):
         """
@@ -33,7 +35,9 @@ class Conversion:
             fahrenheit_a_celsius(32) -> 0.0
             fahrenheit_a_celsius(212) -> 100.0
         """
-        pass
+
+        resultado = (fahrenheit - 32) * 5 / 9
+        return resultado
     
     def metros_a_pies(self, metros):
         """
@@ -50,7 +54,9 @@ class Conversion:
         Ejemplo:
             metros_a_pies(1) -> 3.28084
         """
-        pass
+
+        resultado = (metros * 3.28084)
+        return resultado
     
     def pies_a_metros(self, pies):
         """
@@ -67,7 +73,8 @@ class Conversion:
         Ejemplo:
             pies_a_metros(3.28084) -> 1.0
         """
-        pass
+        resultado = (pies * 0.3048)
+        return resultado
     
     def decimal_a_binario(self, decimal):
         """
@@ -83,7 +90,14 @@ class Conversion:
             decimal_a_binario(10) -> "1010"
             decimal_a_binario(255) -> "11111111"
         """
-        pass
+        if decimal == 0:
+            return "0"
+        resultado = ""
+        while decimal > 0:
+            residuo = decimal % 2
+            resultado = str(residuo) + resultado
+            decimal = decimal // 2
+        return resultado
     
     def binario_a_decimal(self, binario):
         """
@@ -99,8 +113,17 @@ class Conversion:
             binario_a_decimal("1010") -> 10
             binario_a_decimal("11111111") -> 255
         """
-        pass
-    
+
+        decimal = 0
+        potencia = 0
+        binario_invertido = binario[::-1]
+        for caracter in binario_invertido:
+            if caracter == '1':
+                decimal = decimal + (2 ** potencia)
+            potencia = potencia + 1
+        return decimal
+
+
     def decimal_a_romano(self, numero):
         """
         Convierte un número decimal a numeración romana.
@@ -115,8 +138,29 @@ class Conversion:
             decimal_a_romano(9) -> "IX"
             decimal_a_romano(1994) -> "MCMXCIV"
         """
-        pass
-    
+        tabla_romana = [
+            (1000, "M"),
+            (900, "CM"),
+            (500, "D"),
+            (400, "CD"),
+            (100, "C"),
+            (90, "XC"),
+            (50, "L"),
+            (40, "XL"),
+            (10, "X"),
+            (9, "IX"),
+            (5, "V"),
+            (4, "IV"),
+            (1, "I")
+        ]
+        resultado = ""
+
+        for valor, simbolo in tabla_romana:
+            while numero >= valor:
+                resultado += simbolo
+                numero -= valor
+        return resultado
+
     def romano_a_decimal(self, romano):
         """
         Convierte un número romano a decimal.
@@ -131,8 +175,27 @@ class Conversion:
             romano_a_decimal("IX") -> 9
             romano_a_decimal("MCMXCIV") -> 1994
         """
-        pass
-    
+        tabla_romana = {
+            "I": 1,
+            "V": 5,
+            "X": 10,
+            "L": 50,
+            "C": 100,
+            "D": 500,
+            "M": 1000
+        }
+        resultado = 0
+        for i in range(len(romano)):
+            valor_actual = tabla_romana[romano[i]]
+            if i + 1 < len(romano):
+                valor_siguiente = tabla_romana[romano[i + 1]]
+                if valor_actual < valor_siguiente:
+                    resultado -= valor_actual
+                else:
+                    resultado += valor_actual
+            else:
+                resultado += valor_actual
+        return resultado
     def texto_a_morse(self, texto):
         """
         Convierte texto a código Morse.
@@ -147,8 +210,53 @@ class Conversion:
             texto_a_morse("SOS") -> "... --- ..."
             texto_a_morse("HELLO") -> ".... . .-.. .-.. ---"
         """
-        pass
-    
+
+        tabla_morse = {
+            "A": ".-",
+            "B": "-...",
+            "C": "-.-.",
+            "D": "-..",
+            "E": ".",
+            "F": "..-.",
+            "G": "--.",
+            "H": "....",
+            "I": "..",
+            "J": ".---",
+            "K": "-.-",
+            "L": ".-..",
+            "M": "--",
+            "N": "-.",
+            "O": "---",
+            "P": ".--.",
+            "Q": "--.-",
+            "R": ".-.",
+            "S": "...",
+            "T": "-",
+            "U": "..-",
+            "V": "...-",
+            "W": ".--",
+            "X": "-..-",
+            "Y": "-.--",
+            "Z": "--..",
+            "0": "-----",
+            "1": ".----",
+            "2": "..---",
+            "3": "...--",
+            "4": "....-",
+            "5": ".....",
+            "6": "-....",
+            "7": "--...",
+            "8": "---..",
+            "9": "----."
+        }
+        resultado = ""
+        texto = texto.upper()
+        for caracter in texto:
+            if caracter in tabla_morse:
+                resultado += tabla_morse[caracter] + " "
+        return resultado.strip()
+        
+
     def morse_a_texto(self, morse):
         """
         Convierte código Morse a texto.
@@ -163,4 +271,48 @@ class Conversion:
             morse_a_texto("... --- ...") -> "SOS"
             morse_a_texto(".... . .-.. .-.. ---") -> "HELLO"
         """
-        pass
+        tabla_morse = {
+            "A": ".-",
+            "B": "-...",
+            "C": "-.-.",
+            "D": "-..",
+            "E": ".",
+            "F": "..-.",
+            "G": "--.",
+            "H": "....",
+            "I": "..",
+            "J": ".---",
+            "K": "-.-",
+            "L": ".-..",
+            "M": "--",
+            "N": "-.",
+            "O": "---",
+            "P": ".--.",
+            "Q": "--.-",
+            "R": ".-.",
+            "S": "...",
+            "T": "-",
+            "U": "..-",
+            "V": "...-",
+            "W": ".--",
+            "X": "-..-",
+            "Y": "-.--",
+            "Z": "--..",
+            "0": "-----",
+            "1": ".----",
+            "2": "..---",
+            "3": "...--",
+            "4": "....-",
+            "5": ".....",
+            "6": "-....", 
+            "7": "--...",
+            "8": "---..",
+            "9": "----."
+        }
+        tabla_morse_inversa = {v: k for k, v in tabla_morse.items()}
+        codigo_morse = morse.split(" ")
+        resultado = ""
+        for codigo in codigo_morse:
+            if codigo in tabla_morse_inversa:
+                resultado += tabla_morse_inversa[codigo]
+        return resultado
