@@ -14,8 +14,14 @@ class Data:
         Returns:
             list: Lista con los elementos en orden inverso
         """
-        pass
-    
+
+        i = 0
+        j = len(lista) - 1
+        while i < j:
+            lista[i], lista[j] = lista[j], lista[i]
+            i += 1
+            j -= 1
+        return lista
     def buscar_elemento(self, lista, elemento):
         """
         Busca un elemento en una lista y devuelve su índice (o -1 si no existe).
@@ -28,7 +34,12 @@ class Data:
         Returns:
             int: Índice del elemento o -1 si no se encuentra
         """
-        pass
+        i = 0
+        while i < len(lista):
+            if lista[i] == elemento:
+                return i
+            i += 1
+        return -1
     
     def eliminar_duplicados(self, lista):
         """
@@ -41,7 +52,12 @@ class Data:
         Returns:
             list: Lista sin elementos duplicados
         """
-        pass
+
+        resultado = []
+        for elemento in lista:
+            if not any(elemento == x and type(elemento) == type(x) for x in resultado):
+                resultado.append(elemento)
+        return resultado
     
     def merge_ordenado(self, lista1, lista2):
         """
@@ -54,7 +70,23 @@ class Data:
         Returns:
             list: Lista combinada y ordenada
         """
-        pass
+        i = 0
+        j = 0
+        resultado = []
+        while i < len(lista1) and j < len(lista2):
+            if lista1[i] < lista2[j]:
+                resultado.append(lista1[i])
+                i += 1
+            else:
+                resultado.append(lista2[j])
+                j += 1
+        while i < len(lista1):
+            resultado.append(lista1[i])
+            i += 1
+        while j < len(lista2):
+            resultado.append(lista2[j])
+            j += 1
+        return resultado
     
     def rotar_lista(self, lista, k):
         """
@@ -67,7 +99,13 @@ class Data:
         Returns:
             list: Lista rotada
         """
-        pass
+        if len(lista) == 0:
+            return lista
+        k = k % len(lista) 
+        if k == 0:
+            return lista
+        resultado = lista[-k:] + lista[:-k]
+        return resultado
     
     def encuentra_numero_faltante(self, lista):
         """
@@ -79,7 +117,10 @@ class Data:
         Returns:
             int: El número que falta en la secuencia
         """
-        pass
+        n = len(lista) + 1
+        suma_esperada = n * (n + 1) // 2
+        suma_actual = sum(lista)
+        return suma_esperada - suma_actual
     
     def es_subconjunto(self, conjunto1, conjunto2):
         """
@@ -92,7 +133,10 @@ class Data:
         Returns:
             bool: True si conjunto1 es subconjunto de conjunto2, False en caso contrario
         """
-        pass
+        for elemento in conjunto1:
+            if not any(elemento == x and type(elemento) == type(x) for x in conjunto2):
+                return False
+        return True
     
     def implementar_pila(self):
         """
@@ -101,7 +145,30 @@ class Data:
         Returns:
             dict: Diccionario con métodos push, pop, peek y is_empty
         """
-        pass
+        pila = []
+        
+        def push(elemento):
+            pila.append(elemento)
+        
+        def pop():
+            if not is_empty():
+                return pila.pop()
+            return None
+        
+        def peek():
+            if not is_empty():
+                return pila[-1]
+            return None
+        
+        def is_empty():
+            return len(pila) == 0
+        
+        return {
+            "push": push,
+            "pop": pop,
+            "peek": peek,
+            "is_empty": is_empty
+        }
     
     def implementar_cola(self):
         """
@@ -110,7 +177,30 @@ class Data:
         Returns:
             dict: Diccionario con métodos enqueue, dequeue, peek y is_empty
         """
-        pass
+        cola = []
+        
+        def enqueue(elemento):
+            cola.append(elemento)
+        
+        def dequeue():
+            if not is_empty():
+                return cola.pop(0)
+            return None
+        
+        def peek():
+            if not is_empty():
+                return cola[0]
+            return None
+        
+        def is_empty():
+            return len(cola) == 0
+        
+        return {
+            "enqueue": enqueue,
+            "dequeue": dequeue,
+            "peek": peek,
+            "is_empty": is_empty
+        }
     
     def matriz_transpuesta(self, matriz):
         """
@@ -122,4 +212,14 @@ class Data:
         Returns:
             list: Matriz transpuesta
         """
-        pass
+        if not matriz:
+            return []
+        filas = len(matriz)
+        columnas = len(matriz[0])
+        transpuesta = [[0] * filas for _ in range(columnas)]
+        
+        for i in range(filas):
+            for j in range(columnas):
+                transpuesta[j][i] = matriz[i][j]
+        
+        return transpuesta
