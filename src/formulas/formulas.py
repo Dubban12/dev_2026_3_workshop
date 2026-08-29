@@ -79,7 +79,8 @@ class Formulas:
         Ejemplo:
             fuerza_newton(10, 2) -> 20.0
         """
-        pass
+        fuerza = masa * aceleracion
+        return fuerza
 
     def energia_cinetica(self, masa, velocidad):
         """
@@ -97,7 +98,8 @@ class Formulas:
         Ejemplo:
             energia_cinetica(2, 3) -> 9.0
         """
-        pass
+        energia = 0.5 * masa * velocidad**2
+        return energia
 
     def energia_potencial(self, masa, altura, gravedad=9.8):
         """
@@ -116,7 +118,8 @@ class Formulas:
         Ejemplo:
             energia_potencial(2, 5) -> 98.0
         """
-        pass
+        energia = masa * gravedad * altura
+        return energia
 
     def ley_ohm_voltaje(self, corriente, resistencia):
         """
