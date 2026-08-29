@@ -19,7 +19,8 @@ class Formulas:
         Ejemplo:
             velocidad_media(100, 10) -> 10.0
         """
-        return distancia / tiempo
+        velocidad_media = distancia / tiempo
+        return velocidad_media
 
     def mruv_posicion(self, posicion_inicial, velocidad_inicial, aceleracion, tiempo):
         """
@@ -39,7 +40,8 @@ class Formulas:
         Ejemplo:
             mruv_posicion(0, 2, 1, 3) -> 10.5
         """
-        pass
+        posicion_final = posicion_inicial + velocidad_inicial * tiempo + 0.5 * aceleracion * tiempo**2
+        return posicion_final
 
     def mruv_velocidad(self, velocidad_inicial, aceleracion, tiempo):
         """
@@ -58,7 +60,8 @@ class Formulas:
         Ejemplo:
             mruv_velocidad(2, 1, 3) -> 5.0
         """
-        pass
+        velocidad_final = velocidad_inicial + aceleracion * tiempo
+        return velocidad_final
 
     def fuerza_newton(self, masa, aceleracion):
         """
