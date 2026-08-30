@@ -15,7 +15,8 @@ class Geometria:
         Returns:
             float: Área del rectángulo
         """
-        return base*altura
+        area = base * altura
+        return area
     
     def perimetro_rectangulo(self, base, altura):
         """
@@ -28,7 +29,8 @@ class Geometria:
         Returns:
             float: Perímetro del rectángulo
         """
-        pass
+        perimetro = 2 * (base + altura)
+        return perimetro
     
     def area_circulo(self, radio):
         """
@@ -40,7 +42,8 @@ class Geometria:
         Returns:
             float: Área del círculo
         """
-        pass
+        area = 3.14159 * radio ** 2
+        return area
     
     def perimetro_circulo(self, radio):
         """
