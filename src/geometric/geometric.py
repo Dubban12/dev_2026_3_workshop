@@ -101,7 +101,8 @@ class Geometria:
         Returns:
             bool: True si los lados pueden formar un triángulo, False en caso contrario
         """
-        pass
+        valido = (lado1 + lado2 > lado3) and (lado1 + lado3 > lado2) and (lado2 + lado3 > lado1)
+        return valido
     
     def area_trapecio(self, base_mayor, base_menor, altura):
         """
@@ -115,7 +116,8 @@ class Geometria:
         Returns:
             float: Área del trapecio
         """
-        pass
+        area = base_menor * base_mayor * altura / 2
+        return area
     
     def area_rombo(self, diagonal_mayor, diagonal_menor):
         """
@@ -128,7 +130,8 @@ class Geometria:
         Returns:
             float: Área del rombo
         """
-        pass
+        area = diagonal_mayor * diagonal_menor / 2
+        return area
     
     def area_pentagono_regular(self, lado, apotema):
         """
@@ -141,7 +144,8 @@ class Geometria:
         Returns:
             float: Área del pentágono regular
         """
-        pass
+        area = (5 * lado * apotema) / 2
+        return area
     
     def perimetro_pentagono_regular(self, lado):
         """
