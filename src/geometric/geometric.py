@@ -251,7 +251,7 @@ class Geometria:
         Returns:
             float: Volumen del cilindro
         """
-        volumen = 3,14159 * radio**2 * altura
+        volumen = 3.14159 * radio**2 * altura
         return volumen
     
     def area_superficie_cilindro(self, radio, altura):
@@ -265,7 +265,8 @@ class Geometria:
         Returns:
             float: Área de la superficie del cilindro
         """
-        pass
+        area = 2 * 3.14159 * radio**2 + 2 * 3.14159 * radio * altura
+        return area
     
     def distancia_entre_puntos(self, x1, y1, x2, y2):
         """
@@ -280,7 +281,8 @@ class Geometria:
         Returns:
             float: Distancia entre los dos puntos
         """
-        pass
+        distancia = ((x2 - x1)**2 + (y2 - y1)**2) ** 0.5
+        return distancia
     
     def punto_medio(self, x1, y1, x2, y2):
         """
@@ -295,7 +297,9 @@ class Geometria:
         Returns:
             tuple: Coordenadas (x, y) del punto medio
         """
-        pass
+        punto_medio_x = (x1 + x2) / 2
+        punto_medio_y = (y1 + y2) / 2
+        return (punto_medio_x, punto_medio_y)
     
     def pendiente_recta(self, x1, y1, x2, y2):
         """
