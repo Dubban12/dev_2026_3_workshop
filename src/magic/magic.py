@@ -162,7 +162,15 @@ class Magic:
         Returns:
             int: El mínimo común múltiplo de a y b
         """
-        pass
+        def calcular_mcd(x, y):
+            while y != 0:
+                x, y = y, x % y
+            return x
+
+        divisor = calcular_mcd(a, b)
+        if divisor == 0:
+            return 0
+        return abs(a * b) // divisor
     
     def suma_digitos(self, n):
         """
@@ -174,7 +182,11 @@ class Magic:
         Returns:
             int: La suma de los dígitos de n
         """
-        pass
+        suma = 0
+        while n > 0:
+            suma += n % 10
+            n //= 10
+        return suma
     
     def es_numero_armstrong(self, n):
         """
