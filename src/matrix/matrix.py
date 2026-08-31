@@ -119,7 +119,9 @@ class Matrix:
         Ejemplo:
             transpuesta([[1, 2, 3], [4, 5, 6]]) -> [[1, 4], [2, 5], [3, 6]]
         """
-        pass
+        if not matriz:
+            return []
+        return [[matriz[j][i] for j in range(len(matriz))] for i in range(len(matriz[0]))]
 
     def es_cuadrada(self, matriz):
         """
@@ -135,7 +137,8 @@ class Matrix:
             es_cuadrada([[1, 2], [3, 4]]) -> True
             es_cuadrada([[1, 2, 3], [4, 5, 6]]) -> False
         """
-        pass
+        resultado = len(matriz) == len(matriz[0]) if matriz else False
+        return resultado
 
     def es_simetrica(self, matriz):
         """
