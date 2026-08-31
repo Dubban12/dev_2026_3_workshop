@@ -200,7 +200,11 @@ class Matrix:
             determinante_2x2([[3, 8], [4, 6]]) -> -14
             determinante_2x2([[1, 2], [3, 4]]) -> -2
         """
-        pass
+        resultado = 0
+        if len(matriz) != 2 or len(matriz[0]) != 2:
+            raise ValueError("La matriz debe ser 2x2 para calcular el determinante.")
+        resultado = matriz[0][0] * matriz[1][1] - matriz[0][1] * matriz[1][0]
+        return resultado
 
     def determinante_3x3(self, matriz):
         """
@@ -219,7 +223,16 @@ class Matrix:
             determinante_3x3([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) -> 0
             determinante_3x3([[1, 0, 0], [0, 2, 0], [0, 0, 3]]) -> 6
         """
-        pass
+        resultado = 0
+        if len(matriz) != 3 or len(matriz[0]) != 3:
+            raise ValueError("La matriz debe ser 3x3 para calcular el determinante.")
+        resultado = (matriz[0][0] * matriz[1][1] * matriz[2][2] +
+                    matriz[0][1] * matriz[1][2] * matriz[2][0] +
+                    matriz[0][2] * matriz[1][0] * matriz[2][1] -
+                    matriz[0][2] * matriz[1][1] * matriz[2][0] -
+                    matriz[0][0] * matriz[1][2] * matriz[2][1] -
+                    matriz[0][1] * matriz[1][0] * matriz[2][2])
+        return resultado
 
     def identidad(self, n):
         """
