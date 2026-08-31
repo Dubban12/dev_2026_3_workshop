@@ -130,7 +130,7 @@ class Matrix:
         Args:
             matriz (list): Matriz (lista de listas)
 
-        Returns:
+        Returns:    
             bool: True si la matriz es cuadrada, False en caso contrario
 
         Ejemplo:
@@ -155,7 +155,8 @@ class Matrix:
             es_simetrica([[1, 2, 3], [2, 5, 6], [3, 6, 9]]) -> True
             es_simetrica([[1, 2], [3, 4]]) -> False
         """
-        pass
+        resultado = self.es_cuadrada(matriz) and matriz == self.transpuesta(matriz)
+        return resultado
 
     def traza(self, matriz):
         """
@@ -174,7 +175,12 @@ class Matrix:
             traza([[1, 2], [3, 4]]) -> 5
             traza([[1, 0, 0], [0, 5, 0], [0, 0, 9]]) -> 15
         """
-        pass
+        resultado = 0
+        if not self.es_cuadrada(matriz):
+            raise ValueError("La matriz debe ser cuadrada para calcular la traza.")
+        for i in range(len(matriz)):
+            resultado += matriz[i][i]
+        return resultado
 
     def determinante_2x2(self, matriz):
         """
