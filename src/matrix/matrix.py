@@ -76,7 +76,16 @@ class Matrix:
         Ejemplo:
             multiplicar_matrices([[1, 2], [3, 4]], [[5, 6], [7, 8]]) -> [[19, 22], [43, 50]]
         """
-        pass
+        resultado = []
+        if len(A[0]) != len(B):
+            raise ValueError("El número de columnas de A debe ser igual al número de filas de B.")
+        for i in range(len(A)):
+            fila = []
+            for j in range(len(B[0])):
+                elemento = sum(A[i][k] * B[k][j] for k in range(len(B)))
+                fila.append(elemento)
+            resultado.append(fila)
+        return resultado
 
     def multiplicar_escalar(self, matriz, escalar):
         """
@@ -92,7 +101,10 @@ class Matrix:
         Ejemplo:
             multiplicar_escalar([[1, 2], [3, 4]], 3) -> [[3, 6], [9, 12]]
         """
-        pass
+        resultado = []
+        for fila in matriz:
+            resultado.append([elemento * escalar for elemento in fila])
+        return resultado
 
     def transpuesta(self, matriz):
         """
