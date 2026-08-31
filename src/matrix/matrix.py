@@ -291,7 +291,11 @@ class Matrix:
             es_diagonal([[3, 0], [0, 7]]) -> True
             es_diagonal([[1, 2], [0, 4]]) -> False
         """
-        pass
+        for i in range(len(matriz)):
+            for j in range(len(matriz)):
+                if i != j and matriz[i][j] != 0:
+                    return False
+        return True
 
     def rotar_90(self, matriz):
         """
@@ -307,7 +311,10 @@ class Matrix:
             rotar_90([[1, 2], [3, 4]]) -> [[3, 1], [4, 2]]
             rotar_90([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) -> [[7, 4, 1], [8, 5, 2], [9, 6, 3]]
         """
-        pass
+        filas = len(matriz)
+        columnas = len(matriz[0])
+        resultado = [[matriz[filas - 1 - j][i] for j in range(filas)] for i in range(columnas)]
+        return resultado
 
     def buscar_en_matriz(self, matriz, valor):
         """
@@ -325,4 +332,9 @@ class Matrix:
             buscar_en_matriz([[1, 2, 3], [4, 2, 6], [7, 8, 2]], 2) -> [(0, 1), (1, 1), (2, 2)]
             buscar_en_matriz([[1, 2], [3, 4]], 9) -> []
         """
-        pass
+        posiciones = []
+        for i in range(len(matriz)):
+            for j in range(len(matriz[0])):
+                if matriz[i][j] == valor:
+                    posiciones.append((i, j))
+        return posiciones
