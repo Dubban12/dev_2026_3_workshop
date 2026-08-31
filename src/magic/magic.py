@@ -129,7 +129,12 @@ class Magic:
         Returns:
             int: El factorial de n
         """
-        pass
+        if n < 0:
+            return None
+        resultado = 1
+        for i in range (2, n + 1):
+            resultado *= i
+        return resultado
     
     def mcd(self, a, b):
         """
@@ -142,7 +147,9 @@ class Magic:
         Returns:
             int: El máximo común divisor de a y b
         """
-        pass
+        while b != 0:
+            a, b = b, a % b
+        return a
     
     def mcm(self, a, b):
         """
