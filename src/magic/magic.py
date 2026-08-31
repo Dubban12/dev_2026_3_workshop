@@ -55,7 +55,12 @@ class Magic:
         Returns:
             bool: True si n es primo, False en caso contrario
         """
-        pass
+        if n <= 1:
+            return False
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
     
     def generar_primos(self, n):
         """
@@ -67,8 +72,17 @@ class Magic:
         Returns:
             list: Lista de números primos hasta n
         """
-        pass
-    
+        primos = []
+        for num in range(2, n + 1):
+            es_primo = True
+            for i in range(2, int(num**0.5) + 1):
+                if num % i == 0:
+                    es_primo = False
+                    break
+            if es_primo:
+                primos.append(num)
+        return primos
+
     def es_numero_perfecto(self, n):
         """
         Verifica si un número es perfecto (igual a la suma de sus divisores propios).
