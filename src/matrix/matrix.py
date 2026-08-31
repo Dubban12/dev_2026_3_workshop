@@ -249,7 +249,8 @@ class Matrix:
             identidad(2) -> [[1, 0], [0, 1]]
             identidad(3) -> [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
         """
-        pass
+        resultado = [[1 if i == j else 0 for j in range(n)] for i in range(n)]
+        return resultado
 
     def diagonal(self, matriz):
         """
@@ -268,7 +269,12 @@ class Matrix:
             diagonal([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) -> [1, 5, 9]
             diagonal([[3, 0], [0, 7]]) -> [3, 7]
         """
-        pass
+        resultado = []
+        if not self.es_cuadrada(matriz):
+            raise ValueError("La matriz debe ser cuadrada para extraer la diagonal.")
+        for i in range(len(matriz)):
+            resultado.append(matriz[i][i])
+        return resultado
 
     def es_diagonal(self, matriz):
         """
