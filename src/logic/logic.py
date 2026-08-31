@@ -14,7 +14,8 @@ class Logica:
         Returns:
             bool: Resultado de a AND b
         """
-        pass
+        resultado = a and b
+        return resultado
     
     def OR(self, a, b):
         """
@@ -27,7 +28,8 @@ class Logica:
         Returns:
             bool: Resultado de a OR b
         """
-        pass
+        resultado = a or b
+        return resultado
     
     def NOT(self, a):
         """
@@ -39,7 +41,8 @@ class Logica:
         Returns:
             bool: Resultado de NOT a
         """
-        pass
+        resultado = not a
+        return resultado
     
     def XOR(self, a, b):
         """
@@ -52,8 +55,9 @@ class Logica:
         Returns:
             bool: Resultado de a XOR b
         """
-        pass
-    
+        resultado = a != b
+        return resultado
+
     def NAND(self, a, b):
         """
         Implementa la operación lógica NAND (NOT AND).
