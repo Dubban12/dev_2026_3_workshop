@@ -69,7 +69,8 @@ class Logica:
         Returns:
             bool: Resultado de a NAND b
         """
-        pass
+        resultado = not (a and b)
+        return resultado
     
     def NOR(self, a, b):
         """
@@ -82,7 +83,8 @@ class Logica:
         Returns:
             bool: Resultado de a NOR b
         """
-        pass
+        resultado = not (a or b)
+        return resultado
     
     def XNOR(self, a, b):
         """
@@ -95,7 +97,8 @@ class Logica:
         Returns:
             bool: Resultado de a XNOR b
         """
-        pass
+        resultado = a == b
+        return resultado
     
     def implicacion(self, a, b):
         """
@@ -108,7 +111,8 @@ class Logica:
         Returns:
             bool: Resultado de la implicación
         """
-        pass
+        resultado = not a or b
+        return resultado
     
     def bi_implicacion(self, a, b):
         """
@@ -121,6 +125,7 @@ class Logica:
         Returns:
             bool: Resultado de la bi-implicación
         """
-        pass
+        resultado = a == b
+        return resultado
     
     
