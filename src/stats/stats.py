@@ -12,8 +12,10 @@ class Stats:
         Ejemplo:
             promedio([1, 2, 3, 4, 5]) -> 3.0
         """
-        pass
-    
+        if not numeros:
+            return 0
+        return sum(numeros) / len(numeros)
+                       
     def mediana(self, numeros):
         """
         Encuentra el valor mediano de una lista de números.
@@ -29,7 +31,17 @@ class Stats:
             mediana([1, 2, 3, 4, 5]) -> 3.0
             mediana([1, 2, 3, 4]) -> 2.5
         """
-        pass
+        if not numeros:
+            return 0
+
+        numeros.sort()
+        n = len(numeros)
+        mitad = n // 2
+        if n % 2 == 1:
+            return numeros[mitad]
+        else:
+            return (numeros[mitad - 1] + numeros[mitad]) / 2
+
     
     def moda(self, numeros):
         """
