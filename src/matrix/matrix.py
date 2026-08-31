@@ -21,7 +21,15 @@ class Matrix:
         Ejemplo:
             suma_matrices([[1, 2], [3, 4]], [[5, 6], [7, 8]]) -> [[6, 8], [10, 12]]
         """
-        pass
+        resultado = []
+        if len(A) != len(B) or len(A[0]) != len(B[0]):
+            raise ValueError("Las matrices deben tener las mismas dimensiones para sumarlas.")
+        for i in range(len(A)):
+            fila = []
+            for j in range(len(A[0])):
+                fila.append(A[i][j] + B[i][j])
+            resultado.append(fila)
+        return resultado
 
     def resta_matrices(self, A, B):
         """
@@ -40,7 +48,15 @@ class Matrix:
         Ejemplo:
             resta_matrices([[5, 6], [7, 8]], [[1, 2], [3, 4]]) -> [[4, 4], [4, 4]]
         """
-        pass
+        resultado = []
+        if len(A) != len(B) or len(A[0]) != len(B[0]):
+            raise ValueError("Las matrices deben tener las mismas dimensiones para restarlas.")
+        for i in range(len(A)):
+            fila = []
+            for j in range(len(A[0])):
+                fila.append(A[i][j] - B[i][j])
+            resultado.append(fila)
+        return resultado
 
     def multiplicar_matrices(self, A, B):
         """
